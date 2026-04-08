@@ -1,430 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Real Estate Probate Arbitrage — Arbitrage Opportunity</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-:root {
-  --bg: #06101f;
-  --bg-2: #0b172a;
-  --panel: rgba(15, 23, 42, 0.78);
-  --panel-soft: rgba(30, 41, 59, 0.58);
-  --border: rgba(148, 163, 184, 0.16);
-  --text: #e5eefc;
-  --muted: #9fb0c7;
-  --primary: #4cc9f0;
-  --secondary: #7c3aed;
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --shadow: 0 20px 50px rgba(2, 8, 23, 0.45);
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  color: var(--text);
-  background:
-    radial-gradient(circle at top left, rgba(76, 201, 240, 0.14), transparent 24%),
-    radial-gradient(circle at top right, rgba(124, 58, 237, 0.16), transparent 22%),
-    linear-gradient(180deg, #020617 0%, #06101f 100%);
-}
-a { color: inherit; }
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(14px);
-  background: rgba(2, 6, 23, 0.78);
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-}
-.mark {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  box-shadow: var(--shadow);
-  font-size: 1.2rem;
-}
-.brand h1 { margin: 0; font-size: 1rem; }
-.eyebrow {
-  margin: 0 0 0.25rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.76rem;
-  color: var(--primary);
-  font-weight: 700;
-}
-.topnav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-}
-.topnav a {
-  text-decoration: none;
-  color: var(--muted);
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-.topnav a:hover { color: var(--text); }
-.shell {
-  width: min(1180px, calc(100% - 2rem));
-  margin: 0 auto;
-}
-.hero {
-  display: grid;
-  grid-template-columns: 1.3fr 0.9fr;
-  gap: 1.5rem;
-  padding: 4rem 0 2rem;
-}
-.hero h2 {
-  margin: 0;
-  font-size: clamp(2.4rem, 4.6vw, 4.3rem);
-  line-height: 1.03;
-  max-width: 11ch;
-}
-.subtitle {
-  color: var(--muted);
-  font-size: 1.08rem;
-  line-height: 1.75;
-  max-width: 64ch;
-  margin-top: 1rem;
-}
-.card {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  box-shadow: var(--shadow);
-}
-.hero-card, .section-card, .demo-panel, .demo-card {
-  padding: 1.4rem;
-}
-.metric-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem;
-  margin-top: 1rem;
-}
-.metric {
-  background: var(--panel-soft);
-  border-radius: 18px;
-  padding: 1rem;
-}
-.metric strong {
-  display: block;
-  font-size: 1.35rem;
-}
-.metric span, .muted, p, li {
-  color: var(--muted);
-  line-height: 1.7;
-}
-.section {
-  padding: 0.8rem 0;
-}
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: end;
-  margin-bottom: 1rem;
-}
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-.kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.45rem 0.8rem;
-  color: var(--text);
-  background: rgba(15, 23, 42, 0.5);
-  font-size: 0.88rem;
-  font-weight: 600;
-}
-.list {
-  margin: 0.5rem 0 0;
-  padding-left: 1.1rem;
-}
-.demo-layout {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 1rem;
-}
-.mock-window {
-  background: linear-gradient(180deg, rgba(15,23,42,0.88), rgba(9,15,28,0.95));
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  overflow: hidden;
-}
-.mock-top {
-  display: flex;
-  gap: 0.45rem;
-  align-items: center;
-  padding: 0.85rem 1rem;
-  border-bottom: 1px solid var(--border);
-  background: rgba(255,255,255,0.02);
-}
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: #334155;
-}
-.dot.red { background: #fb7185; }
-.dot.yellow { background: #f59e0b; }
-.dot.green { background: #22c55e; }
-.mock-body {
-  padding: 1rem;
-}
-.mock-row {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 0.9rem;
-  margin-top: 0.9rem;
-}
-.mini-card {
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 1rem;
-}
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.35rem 0.65rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  margin-right: 0.5rem;
-}
-.badge.success { background: rgba(34,197,94,0.12); color: #86efac; }
-.badge.warn { background: rgba(245,158,11,0.12); color: #fcd34d; }
-.badge.info { background: rgba(76,201,240,0.12); color: #7dd3fc; }
-.cta {
-  margin-top: 1rem;
-  padding: 1rem 1.1rem;
-  border-radius: 18px;
-  background: linear-gradient(135deg, rgba(76,201,240,0.12), rgba(124,58,237,0.12));
-  border: 1px solid rgba(76,201,240,0.2);
-}
-.footer-nav {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: center;
-  padding: 2rem 0 3rem;
-}
-.link-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  padding: 0.85rem 1rem;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: rgba(15,23,42,0.6);
-  font-weight: 700;
-}
-@media (max-width: 920px) {
-  .topbar, .section-head, .footer-nav { flex-direction: column; align-items: flex-start; }
-  .hero, .grid-2, .grid-3, .demo-layout, .mock-row { grid-template-columns: 1fr; }
-  .hero { padding-top: 2rem; }
-}
-</style>
-</head>
-<body>
-  <header class="topbar">
-    <div class="brand">
-      <div class="mark">⚡</div>
-      <div>
-        <p class="eyebrow">Arbitrage opportunity</p>
-        <h1>Real Estate Probate Arbitrage</h1>
-      </div>
-    </div>
-    <nav class="topnav" aria-label="Page navigation">
-      <a href="#overview">Overview</a>
-      <a href="#problem">Problem</a>
-      <a href="#solution">Solution</a>
-      <a href="#model">Business Model</a>
-      <a href="#demo">Demo</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="shell hero" id="overview">
-      <div>
-        <p class="eyebrow">Speed-gap business</p>
-        <h2>Real Estate Probate Arbitrage</h2>
-        <p class="subtitle">Capture distressed property leads before structured real estate data brokers catch up.</p>
-        <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1.25rem;">
-          <span class="kicker">Buyer: Wholesalers, real estate investors, distressed-asset operators, local acquisition teams.</span>
-          <span class="kicker">Edge: Direct county-source ingestion beats broker-lagged lead marketplaces.</span>
-        </div>
-      </div>
-      <aside class="card hero-card">
-        <p class="eyebrow">Investment snapshot</p>
-        <div class="metric-grid">
-          <div class="metric"><strong>Fast</strong><span>Right-time monitoring and action loop</span></div>
-          <div class="metric"><strong>AI-Native</strong><span>Decisioning and enrichment layer</span></div>
-          <div class="metric"><strong>Focused</strong><span>Narrow operational wedge to start</span></div>
-          <div class="metric"><strong>Scalable</strong><span>Repeatable workflow once signal is proven</span></div>
-        </div>
-      </aside>
-    </section>
-
-    <section class="shell section" id="problem">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Problem</p>
-          <h3>The market is slow where it matters.</h3>
-        </div>
-      </div>
-      <div class="grid-2">
-        <div class="card section-card">
-          <p>Distressed property opportunities often appear first in fragmented county systems, probate filings, tax lien notices, and foreclosure records. Most investors do not act on those signals until they are cleaned, normalized, and resold by lead brokers weeks later.</p>
-        </div>
-        <div class="card section-card">
-          <h4>Why the gap exists</h4>
-          <ul class="list">
-            <li>Source data appears before mainstream systems digest it.</li>
-            <li>Human review creates latency in decision and execution.</li>
-            <li>Most incumbents operate on periodic refresh cycles, not continuous reaction.</li>
-            <li>Speed gaps compound when downstream follow-up is fragmented.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="shell section" id="solution">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Solution</p>
-          <h3>Build a system that sees it first and moves cleanly.</h3>
-        </div>
-      </div>
-      <div class="grid-2">
-        <div class="card section-card">
-          <p>Build an AI-native lead engine that monitors county sources directly, extracts addresses and contact entities from unstructured records, estimates equity, and triggers outreach before the broader market sees the opportunity.</p>
-          <div class="cta">
-            <strong>Core workflow</strong>
-            <p class="muted" style="margin:0.45rem 0 0;">Monitor public records → extract entities with AI → enrich property value and debt estimate → score equity and urgency → trigger direct mail/SMS/workflow automation.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Real Estate Probate & Distressed Property Arbitrage — Opportunity Engine Demo</title>
+    <meta name="description" content="Bridging the gap between analog public records and digital real estate platforms." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="shell topbar-inner">
+        <div class="brand-wrap">
+          <div class="brand-mark">⚡</div>
+          <div>
+            <p class="eyebrow">Opportunity Engine demo</p>
+            <h1>Local Real Estate Probate & Distressed Property Arbitrage</h1>
           </div>
         </div>
-        <div class="card section-card">
-          <h4>Relevant data sources</h4>
-          <p>County clerk sites, probate notices, foreclosure records, assessor/property databases, valuation APIs.</p>
-          <h4 style="margin-top:1rem;">Strategic wedge</h4>
-          <p>Direct county-source ingestion beats broker-lagged lead marketplaces.</p>
-        </div>
+        <nav class="topnav" aria-label="Section navigation">
+          <a href="#overview">Overview</a>
+          <a href="#speed-gap">Speed gap</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#prototype">Prototype</a>
+        </nav>
+        <a class="back-link" href="../index.html">← Back to portfolio</a>
       </div>
-    </section>
+    </header>
 
-    <section class="shell section" id="model">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Business model</p>
-          <h3>How this turns into a real business</h3>
-        </div>
-      </div>
-      <div class="grid-3">
-        <div class="card section-card">
-          <h4>Initial wedge</h4>
-          <p>Start with a narrow use case where signal quality is measurable and execution can be standardized quickly.</p>
-        </div>
-        <div class="card section-card">
-          <h4>Monetization</h4>
-          <p>Charge for access, take performance fees, capture margin directly, or productize the workflow as software plus services.</p>
-        </div>
-        <div class="card section-card">
-          <h4>Expansion path</h4>
-          <p>Once the pipeline works, expand geography, vertical coverage, data sources, or execution channels.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="shell section" id="demo">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Demo section</p>
-          <h3>Demo: Probate lead scoring dashboard</h3>
-        </div>
-      </div>
-      <div class="demo-layout">
-        <div class="demo-panel card">
-          <p>Show a mocked workflow where a new probate notice is detected, parsed into a structured lead, enriched with property value, scored for equity potential, and surfaced as a high-priority outreach candidate.</p>
-          <div class="cta">
-            <strong>Prototype recommendation</strong>
-            <p class="muted" style="margin:0.45rem 0 0;">Best first build: one county, one ingestion source, one lead scoring workflow.</p>
+    <main>
+      <section class="hero shell" id="overview">
+        <div class="hero-copy">
+          <div class="hero-badge"><span class="status-dot"></span> Single-opportunity product demo</div>
+          <p class="eyebrow">Launch-ready concept page</p>
+          <h2>Local Real Estate Probate & Distressed Property Arbitrage</h2>
+          <p class="lead">Bridging the gap between analog public records and digital real estate platforms.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#prototype">View prototype build</a>
+            <a class="btn btn-secondary" href="./brief.md" target="_blank" rel="noreferrer">Open original brief</a>
+          </div>
+          <div class="hero-stats">
+            <div><strong>01</strong><span>portfolio module</span></div>
+            <div><strong>AI-native</strong><span>execution workflow</span></div>
+            <div><strong>Live</strong><span>demo-ready structure</span></div>
           </div>
         </div>
-        <div class="demo-card card">
-          <div class="mock-window">
-            <div class="mock-top">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
+
+        <aside class="visual card">
+          <div class="visual-top">
+            <span class="dot red"></span>
+            <span class="dot amber"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="visual-body">
+            <div class="metric">
+              <span class="signal-text">Speed-gap profile</span>
+              <strong id="scoreValue">92</strong>
+              <small class="signal-text" id="scoreLabel">High opportunity density</small>
             </div>
-            <div class="mock-body">
-              <span class="badge info">Signal detected</span>
-              <span class="badge success">Qualified</span>
-              <div class="mock-row">
-                <div class="mini-card">
-                  <h4 style="margin-top:0;">Incoming event</h4>
-                  <p class="muted">Fresh source signal enters the pipeline and is normalized into a structured record.</p>
-                </div>
-                <div class="mini-card">
-                  <h4 style="margin-top:0;">AI decision</h4>
-                  <p class="muted">The system scores urgency, edge, confidence, and downstream execution fit.</p>
-                </div>
-              </div>
-              <div class="mock-row">
-                <div class="mini-card">
-                  <h4 style="margin-top:0;">Opportunity score</h4>
-                  <p><span class="badge warn">Priority</span> High-confidence timing window with clear next action.</p>
-                </div>
-                <div class="mini-card">
-                  <h4 style="margin-top:0;">Execution output</h4>
-                  <p class="muted">Alert, outreach, purchase, quote, or proposal action triggered from a single workflow.</p>
-                </div>
+            <div class="signal-card">
+              <span class="signal-text">Signal intensity</span>
+              <div class="signal-bars">
+                <span style="height:34%"></span>
+                <span style="height:46%"></span>
+                <span style="height:58%"></span>
+                <span style="height:72%"></span>
+                <span style="height:64%"></span>
+                <span style="height:84%"></span>
+                <span style="height:79%"></span>
+                <span style="height:94%"></span>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </aside>
+      </section>
 
-    <section class="shell footer-nav">
-      <a class="link-btn" href="./index.html">← Back to overview</a>
-      <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-        <a class="link-btn" href="./index.html">Previous</a>
-        <a class="link-btn" href="./02_B2B_Executive_Movement_Arbitrage.html">Next</a>
-      </div>
-    </section>
-  </main>
-</body>
+      <section class="section shell" id="speed-gap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Market thesis</p>
+            <h3>The speed gap this product captures</h3>
+          </div>
+        </div>
+        <div class="panel card">
+          <p class="copy">County clerk offices publish probate, tax lien, and foreclosure data in analog or unstructured formats (PDFs, physical boards, obscure portals). Institutional buyers (Opendoor, large flippers) rely on data brokers like PropStream, which inherently have a 30-90 day lag in aggregating and cleaning this data. The 'speed gap' is the time between a property becoming legally distressed and the broader market finding out.</p>
+        </div>
+      </section>
+
+      <section class="section shell" id="architecture">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">System design</p>
+            <h3>How the AI arbitrage engine operates</h3>
+          </div>
+        </div>
+        <div class="demo">
+          <aside class="list-card card">
+            <p class="eyebrow">Explorer</p>
+            <h3>Demo views</h3>
+            <div class="nav-list" id="navList"></div>
+          </aside>
+          <div class="panel card">
+            <div class="panel-top">
+              <div>
+                <p class="eyebrow">Selected view</p>
+                <h3 id="panelTitle">AI Arbitrage Mechanism</h3>
+              </div>
+              <div class="score-pill">
+                <span>Readiness</span>
+                <strong id="panelScore">92</strong>
+              </div>
+            </div>
+            <div class="meta-grid">
+              <div>
+                <span>Summary</span>
+                <strong id="panelSummary">An AI pipeline that instantly monitors, scrapes, and parses unstructured county data the moment it hits the public domain. It cross-references the addresses via Zillow/Redfin APIs to estimate equity, and automatically dispatches cash-offer SMS or physical mail via APIs (Twilio, Lob) before human investors ever see the lead.</strong>
+              </div>
+              <div>
+                <span>Primary note</span>
+                <strong id="panelSecondary">Automation-first opportunity capture</strong>
+              </div>
+            </div>
+            <div class="meta-box" id="panelDetailBox" style="margin-top:1rem;">
+              <span class="signal-text">Detailed breakdown</span>
+              <ul class="bullet-list" id="panelBullets"></ul>
+            </div>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="./brief.md" target="_blank" rel="noreferrer">Open source brief</a>
+              <a class="btn btn-secondary" href="#prototype">Jump to prototype</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section shell" id="prototype">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Day 1 build</p>
+            <h3>Prototype plan for getting this live fast</h3>
+          </div>
+        </div>
+        <div class="panel card">
+          <ol class="ordered-list">
+            <li>Write a Python script to monitor a single county's probate public notice board.</li><li>Pass new notices to Claude to extract Address and Heir Name.</li><li>Send a Slack alert with a Zillow link and a pre-drafted outreach letter.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Risk & timing</p>
+            <h3>Compression horizon and execution risks</h3>
+          </div>
+        </div>
+        <div class="panel card">
+          <p class="copy">Local municipalities blocking scrapers; high operational friction closing the actual physical real estate deals. Gap compression: 2-4 years as counties modernize their tech.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell footer-note">This demo page is generated from the project brief and organized as a standalone product module.</div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
 </html>

@@ -1,27 +1,23 @@
-# Product Requirements Document (PRD): Local Real Estate Probate Arbitrage
+# Local Real Estate Probate & Distressed Property Arbitrage
 
-## 1. Overview
-The "Speed Gap" in real estate happens between the moment public county records (probate, tax liens, distressed property) hit analog or obscure county portals, and the moment big data brokers (PropStream, Zillow) index them. This project is a prototype of an AI-driven data arbitrage engine that bridges that gap.
+## 1. The Core Concept
+Bridging the gap between analog public records and digital real estate platforms.
 
-## 2. Problem Statement
-Institutional buyers and flippers experience a 30-90 day lag in distressed property data because they rely on aggregated data brokers. By the time they see a distressed property, the market is saturated.
+## 2. The Speed Gap (Information Lag)
+County clerk offices publish probate, tax lien, and foreclosure data in analog or unstructured formats (PDFs, physical boards, obscure portals). Institutional buyers (Opendoor, large flippers) rely on data brokers like PropStream, which inherently have a 30-90 day lag in aggregating and cleaning this data. The 'speed gap' is the time between a property becoming legally distressed and the broader market finding out.
 
-## 3. Solution Concept
-A localized, high-frequency scraper that monitors specific county public notice boards, uses LLMs to extract names, addresses, and distress vectors from unstructured PDFs, and instantly values the property via real estate APIs to generate an immediate cash-offer workflow.
+## 3. The AI Arbitrage Mechanism
+An AI pipeline that instantly monitors, scrapes, and parses unstructured county data the moment it hits the public domain. It cross-references the addresses via Zillow/Redfin APIs to estimate equity, and automatically dispatches cash-offer SMS or physical mail via APIs (Twilio, Lob) before human investors ever see the lead.
 
-## 4. Technical Architecture
-* **Frontend:** React.js dashboard showing real-time ingested notices, extracted addresses, estimated equity, and an "Action" column for automated outreach.
-* **Backend:** Python (FastAPI) API server.
-* **Data Ingestion:** Python scraper (BeautifulSoup/Firecrawl) targeting mock county sites.
-* **Extraction Engine:** OpenAI/Anthropic API integration for unstructured PDF/text parsing.
-* **Outreach Execution (Mocked):** Twilio API for SMS / Lob API for direct mail integration.
+## 4. Architecture & Core Automated Components
+- **Monitoring:** Firecrawl/Playwright bots scanning county sites daily.
+- **Decision Engine:** LLMs (Claude/GPT-4) extracting entities (Names, Addresses, Dates) from unstructured PDFs. API calls to Zillow to confirm property value > debt.
+- **Execution:** Automated CRM entry and immediate API-triggered outbound marketing (Lob for overnight letters, Twilio for SMS).
 
-## 5. Prototype Scope
-* Provide a working Python backend that simulates county notice monitoring and entity extraction.
-* Provide a React frontend dashboard to view the "pipeline" of distressed properties.
-* Provide a live mock demo website explaining the arbitrage strategy to potential buyers or partners.
+## 5. Risk Profile & Compression Horizon
+Local municipalities blocking scrapers; high operational friction closing the actual physical real estate deals. Gap compression: 2-4 years as counties modernize their tech.
 
-## 6. Future Expansion
-* Integrate automated title-checking APIs.
-* Scale to 100+ counties using a generic Playwright-based crawler.
-* Automate the signing and dispatching of physical Lob letters via smart contracts.
+## 6. Prototype Build (Day 1)
+1. Write a Python script to monitor a single county's probate public notice board.
+2. Pass new notices to Claude to extract Address and Heir Name.
+3. Send a Slack alert with a Zillow link and a pre-drafted outreach letter.
