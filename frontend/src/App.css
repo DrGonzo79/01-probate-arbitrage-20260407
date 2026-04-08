@@ -1,0 +1,61 @@
+.App {
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f7f6;
+  min-height: 100vh;
+}
+
+.App-header {
+  background-color: #1e293b;
+  padding: 2rem;
+  color: white;
+}
+
+.App-header p {
+  color: #94a3b8;
+}
+
+.dashboard {
+  max-width: 1000px;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+  background-color: #f8fafc;
+  font-weight: 600;
+  color: #475569;
+}
+
+.equity {
+  color: #16a34a;
+  font-weight: bold;
+}
+
+button {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
