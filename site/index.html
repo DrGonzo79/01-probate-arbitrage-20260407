@@ -3,167 +3,419 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Local Real Estate Probate & Distressed Property Arbitrage — Opportunity Engine Demo</title>
-    <meta name="description" content="Bridging the gap between analog public records and digital real estate platforms." />
+    <title>ProbateEdge — Find Distressed Deals Before the Market</title>
+    <meta name="description" content="AI-powered real estate lead engine that finds probate and distressed properties 30–90 days before institutional buyers. Automated county monitoring, scoring, and outreach." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <header class="topbar">
-      <div class="shell topbar-inner">
-        <div class="brand-wrap">
-          <div class="brand-mark">⚡</div>
-          <div>
-            <p class="eyebrow">Opportunity Engine demo</p>
-            <h1>Local Real Estate Probate & Distressed Property Arbitrage</h1>
-          </div>
-        </div>
-        <nav class="topnav" aria-label="Section navigation">
-          <a href="#overview">Overview</a>
-          <a href="#speed-gap">Speed gap</a>
-          <a href="#architecture">Architecture</a>
-          <a href="#prototype">Prototype</a>
-        </nav>
-        <a class="back-link" href="../index.html">← Back to portfolio</a>
-      </div>
-    </header>
 
-    <main>
-      <section class="hero shell" id="overview">
-        <div class="hero-copy">
-          <div class="hero-badge"><span class="status-dot"></span> Single-opportunity product demo</div>
-          <p class="eyebrow">Launch-ready concept page</p>
-          <h2>Local Real Estate Probate & Distressed Property Arbitrage</h2>
-          <p class="lead">Bridging the gap between analog public records and digital real estate platforms.</p>
+    <!-- ===== Navbar ===== -->
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="container navbar-inner">
+        <a href="#" class="navbar-brand">
+          <div class="navbar-logo">⚡</div>
+          <span>ProbateEdge</span>
+        </a>
+        <div class="navbar-nav">
+          <a href="#how-it-works">How It Works</a>
+          <a href="#speed-gap">Speed Gap</a>
+          <a href="#demo">Live Demo</a>
+          <a href="#features">Features</a>
+        </div>
+        <div class="navbar-cta">
+          <a class="btn btn-primary" href="#early-access">Get Early Access</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Engine active — monitoring 200+ counties
+          </div>
+          <h1>Find Distressed Property Deals <span class="gradient-text">Before the Market</span></h1>
+          <p class="hero-lead">
+            Our AI engine monitors county probate records in real time, extracts lead data with LLMs,
+            scores opportunities by equity and urgency, and dispatches outreach — all before institutional
+            buyers even know the property exists.
+          </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#prototype">View prototype build</a>
-            <a class="btn btn-secondary" href="./brief.md" target="_blank" rel="noreferrer">Open original brief</a>
+            <a class="btn btn-primary" href="#demo">
+              <span class="btn-icon">▶</span> Try Live Demo
+            </a>
+            <a class="btn btn-secondary" href="#how-it-works">Learn How It Works</a>
           </div>
           <div class="hero-stats">
-            <div><strong>01</strong><span>portfolio module</span></div>
-            <div><strong>AI-native</strong><span>execution workflow</span></div>
-            <div><strong>Live</strong><span>demo-ready structure</span></div>
+            <div class="hero-stat">
+              <strong>30–90 days</strong>
+              <span>Head start on competitors</span>
+            </div>
+            <div class="hero-stat">
+              <strong>92%</strong>
+              <span>Lead extraction accuracy</span>
+            </div>
+            <div class="hero-stat">
+              <strong>&lt; 4 hrs</strong>
+              <span>Notice to first contact</span>
+            </div>
           </div>
         </div>
 
-        <aside class="visual card">
-          <div class="visual-top">
-            <span class="dot red"></span>
-            <span class="dot amber"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="visual-body">
-            <div class="metric">
-              <span class="signal-text">Speed-gap profile</span>
-              <strong id="scoreValue">92</strong>
-              <small class="signal-text" id="scoreLabel">High opportunity density</small>
+        <div class="hero-visual">
+          <div class="card pipeline-card">
+            <div class="pipeline-header">
+              <div class="pipeline-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+              </div>
+              <span class="pipeline-status" id="heroStatus">● Pipeline idle</span>
             </div>
-            <div class="signal-card">
-              <span class="signal-text">Signal intensity</span>
-              <div class="signal-bars">
-                <span style="height:34%"></span>
-                <span style="height:46%"></span>
-                <span style="height:58%"></span>
-                <span style="height:72%"></span>
-                <span style="height:64%"></span>
-                <span style="height:84%"></span>
-                <span style="height:79%"></span>
-                <span style="height:94%"></span>
+            <div class="pipeline-steps" id="heroPipeline">
+              <div class="pipeline-step step-scan" data-step="scan">
+                <div class="step-icon">🔍</div>
+                <span class="step-text">Scan county probate records</span>
+                <span class="step-status pending">Idle</span>
+              </div>
+              <div class="pipeline-step step-extract" data-step="extract">
+                <div class="step-icon">🤖</div>
+                <span class="step-text">AI entity extraction (LLM)</span>
+                <span class="step-status pending">Idle</span>
+              </div>
+              <div class="pipeline-step step-score" data-step="score">
+                <div class="step-icon">📊</div>
+                <span class="step-text">Score leads by equity &amp; urgency</span>
+                <span class="step-status pending">Idle</span>
+              </div>
+              <div class="pipeline-step step-outreach" data-step="outreach">
+                <div class="step-icon">📬</div>
+                <span class="step-text">Dispatch automated outreach</span>
+                <span class="step-status pending">Idle</span>
               </div>
             </div>
           </div>
-        </aside>
-      </section>
+        </div>
+      </div>
+    </section>
 
-      <section class="section shell" id="speed-gap">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Market thesis</p>
-            <h3>The speed gap this product captures</h3>
+    <!-- ===== Social proof ===== -->
+    <div class="proof-bar">
+      <div class="container proof-bar-inner">
+        <p>Powered by industry-leading technology</p>
+        <div class="proof-logos">
+          <div class="proof-logo"><span class="proof-logo-icon">🔥</span> Firecrawl</div>
+          <div class="proof-logo"><span class="proof-logo-icon">🎭</span> Playwright</div>
+          <div class="proof-logo"><span class="proof-logo-icon">🧠</span> Claude / GPT-4</div>
+          <div class="proof-logo"><span class="proof-logo-icon">🏠</span> Zillow API</div>
+          <div class="proof-logo"><span class="proof-logo-icon">📱</span> Twilio</div>
+          <div class="proof-logo"><span class="proof-logo-icon">✉️</span> Lob</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== How It Works ===== -->
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> How It Works</p>
+          <h2>From County Records to Closed Deals in Hours</h2>
+          <p>Our three-stage AI pipeline turns unstructured public data into scored, actionable leads — faster than any data broker.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="card step-card">
+            <div class="step-number">1</div>
+            <h3>Monitor &amp; Ingest</h3>
+            <p>Firecrawl and Playwright bots continuously scan county clerk websites for new probate filings, tax liens, and foreclosure notices the moment they appear online.</p>
+          </div>
+          <div class="card step-card">
+            <div class="step-number">2</div>
+            <h3>Extract &amp; Enrich</h3>
+            <p>LLMs (Claude, GPT-4) parse unstructured PDFs to extract property addresses, heir names, and filing dates. Zillow/Redfin APIs estimate equity and confirm property value exceeds debt.</p>
+          </div>
+          <div class="card step-card">
+            <div class="step-number">3</div>
+            <h3>Score &amp; Outreach</h3>
+            <p>Leads are scored by equity, probate age, vacancy signals, and tax status. High-priority leads instantly receive personalized cash-offer letters (Lob) and SMS (Twilio).</p>
           </div>
         </div>
-        <div class="panel card">
-          <p class="copy">County clerk offices publish probate, tax lien, and foreclosure data in analog or unstructured formats (PDFs, physical boards, obscure portals). Institutional buyers (Opendoor, large flippers) rely on data brokers like PropStream, which inherently have a 30-90 day lag in aggregating and cleaning this data. The 'speed gap' is the time between a property becoming legally distressed and the broader market finding out.</p>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section shell" id="architecture">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">System design</p>
-            <h3>How the AI arbitrage engine operates</h3>
-          </div>
+    <!-- ===== Speed Gap ===== -->
+    <section class="section" id="speed-gap">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> The Speed Gap</p>
+          <h2>We Move 30–90 Days Faster Than the Competition</h2>
+          <p>While institutional buyers wait for aggregated data from brokers like PropStream, our engine monitors the source — giving you first-mover advantage.</p>
         </div>
-        <div class="demo">
-          <aside class="list-card card">
-            <p class="eyebrow">Explorer</p>
-            <h3>Demo views</h3>
-            <div class="nav-list" id="navList"></div>
-          </aside>
-          <div class="panel card">
-            <div class="panel-top">
-              <div>
-                <p class="eyebrow">Selected view</p>
-                <h3 id="panelTitle">AI Arbitrage Mechanism</h3>
-              </div>
-              <div class="score-pill">
-                <span>Readiness</span>
-                <strong id="panelScore">92</strong>
+        <div class="speed-gap-grid">
+          <div class="card gap-chart">
+            <div class="gap-chart-header">
+              <h3>Time to First Contact</h3>
+              <div class="gap-legend">
+                <span><span class="gap-legend-dot gap-legend-dot-primary"></span> ProbateEdge</span>
+                <span><span class="gap-legend-dot gap-legend-dot-muted"></span> Competitors</span>
               </div>
             </div>
-            <div class="meta-grid">
-              <div>
-                <span>Summary</span>
-                <strong id="panelSummary">An AI pipeline that instantly monitors, scrapes, and parses unstructured county data the moment it hits the public domain. It cross-references the addresses via Zillow/Redfin APIs to estimate equity, and automatically dispatches cash-offer SMS or physical mail via APIs (Twilio, Lob) before human investors ever see the lead.</strong>
+            <div class="gap-bars">
+              <div class="gap-bar-row">
+                <span class="gap-bar-label">Data discovery</span>
+                <div class="gap-bar-track"><div class="gap-bar-fill ours w-8"></div></div>
+                <span class="gap-bar-value text-primary">4 hrs</span>
               </div>
-              <div>
-                <span>Primary note</span>
-                <strong id="panelSecondary">Automation-first opportunity capture</strong>
+              <div class="gap-bar-row">
+                <span class="gap-bar-label"></span>
+                <div class="gap-bar-track"><div class="gap-bar-fill theirs w-65"></div></div>
+                <span class="gap-bar-value text-muted">30–90 d</span>
+              </div>
+              <div class="gap-bar-row gap-bar-row-spaced">
+                <span class="gap-bar-label">Lead enrichment</span>
+                <div class="gap-bar-track"><div class="gap-bar-fill ours w-5"></div></div>
+                <span class="gap-bar-value text-primary">&lt; 1 min</span>
+              </div>
+              <div class="gap-bar-row">
+                <span class="gap-bar-label"></span>
+                <div class="gap-bar-track"><div class="gap-bar-fill theirs w-40"></div></div>
+                <span class="gap-bar-value text-muted">1–2 wks</span>
+              </div>
+              <div class="gap-bar-row gap-bar-row-spaced">
+                <span class="gap-bar-label">First outreach</span>
+                <div class="gap-bar-track"><div class="gap-bar-fill ours w-12"></div></div>
+                <span class="gap-bar-value text-primary">Same day</span>
+              </div>
+              <div class="gap-bar-row">
+                <span class="gap-bar-label"></span>
+                <div class="gap-bar-track"><div class="gap-bar-fill theirs w-80"></div></div>
+                <span class="gap-bar-value text-muted">60+ days</span>
               </div>
             </div>
-            <div class="meta-box" id="panelDetailBox" style="margin-top:1rem;">
-              <span class="signal-text">Detailed breakdown</span>
-              <ul class="bullet-list" id="panelBullets"></ul>
+          </div>
+          <div class="gap-metric-cards">
+            <div class="card gap-metric">
+              <strong class="text-primary">30–90d</strong>
+              <span>Head start on every deal</span>
             </div>
-            <div class="cta-row">
-              <a class="btn btn-primary" href="./brief.md" target="_blank" rel="noreferrer">Open source brief</a>
-              <a class="btn btn-secondary" href="#prototype">Jump to prototype</a>
+            <div class="card gap-metric">
+              <strong class="text-accent">24/7</strong>
+              <span>Automated county monitoring</span>
+            </div>
+            <div class="card gap-metric">
+              <strong class="text-success">200+</strong>
+              <span>Counties tracked</span>
+            </div>
+            <div class="card gap-metric">
+              <strong class="text-warning">2–4 yr</strong>
+              <span>Before gap closes</span>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section shell" id="prototype">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Day 1 build</p>
-            <h3>Prototype plan for getting this live fast</h3>
+    <!-- ===== Interactive Demo ===== -->
+    <section class="section demo-section" id="demo">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Live Demo</p>
+          <h2>See the Engine in Action</h2>
+          <p>Select a county and run the pipeline. Watch as it scans filings, extracts leads with AI, scores them, and prepares outreach — all in real time.</p>
+        </div>
+        <div class="demo-workspace">
+          <div class="demo-sidebar">
+            <div class="card demo-controls">
+              <h3>Pipeline Controls</h3>
+              <label for="countySelect" class="sr-only">Select county</label>
+              <select id="countySelect" class="county-select" aria-label="Select county to scan">
+                <option value="fulton">Fulton County, GA</option>
+                <option value="dekalb">DeKalb County, GA</option>
+                <option value="cobb">Cobb County, GA</option>
+                <option value="gwinnett">Gwinnett County, GA</option>
+              </select>
+              <button class="run-btn" id="runBtn" type="button">
+                <span class="btn-icon">▶</span> Run Pipeline
+              </button>
+            </div>
+            <div class="card demo-log">
+              <h4>📋 Activity Log</h4>
+              <div class="log-entries" id="logEntries">
+                <div class="log-entry">
+                  <span class="log-time">[--:--:--]</span>
+                  <span class="log-level info">READY</span>
+                  <span class="log-msg">Select a county and click Run</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-main">
+            <div class="card demo-pipeline-status">
+              <div class="pipeline-progress" id="pipelineProgress">
+                <div class="progress-step" data-step="scan">🔍 Scan</div>
+                <div class="progress-connector"></div>
+                <div class="progress-step" data-step="extract">🤖 Extract</div>
+                <div class="progress-connector"></div>
+                <div class="progress-step" data-step="score">📊 Score</div>
+                <div class="progress-connector"></div>
+                <div class="progress-step" data-step="outreach">📬 Outreach</div>
+              </div>
+              <div class="pipeline-total">
+                Leads found: <strong id="leadCount">0</strong>
+              </div>
+            </div>
+
+            <div class="card leads-table-card">
+              <h3>Discovered Leads</h3>
+              <table class="leads-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Address</th>
+                    <th scope="col">County</th>
+                    <th scope="col">Est. Equity</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Vacancy</th>
+                    <th scope="col">Tax Lien</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="leadsBody">
+                  <tr>
+                    <td colspan="8">
+                      <div class="empty-state">
+                        <div class="empty-state-icon">📡</div>
+                        <p>No leads yet. Run the pipeline to discover distressed properties.</p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card lead-detail" id="leadDetail" style="display:none;">
+              <div class="lead-detail-header">
+                <div class="lead-detail-title">
+                  <h3 id="detailAddress">—</h3>
+                  <span id="detailCounty">—</span>
+                </div>
+                <div class="lead-detail-score">
+                  <strong id="detailScore">—</strong>
+                  <span>Priority Score</span>
+                </div>
+              </div>
+              <div class="detail-metrics">
+                <div class="detail-metric">
+                  <span>Estimated Equity</span>
+                  <strong id="detailEquity">—</strong>
+                </div>
+                <div class="detail-metric">
+                  <span>Probate Age</span>
+                  <strong id="detailAge">—</strong>
+                </div>
+                <div class="detail-metric">
+                  <span>Vacancy Signal</span>
+                  <strong id="detailVacancy">—</strong>
+                </div>
+                <div class="detail-metric">
+                  <span>Tax Delinquent</span>
+                  <strong id="detailTax">—</strong>
+                </div>
+              </div>
+              <div class="outreach-preview">
+                <h4>📬 Outreach Preview</h4>
+                <p id="outreachText">—</p>
+                <div class="outreach-actions">
+                  <button class="outreach-btn" id="sendMailBtn" type="button">✉️ Send Direct Mail</button>
+                  <button class="outreach-btn" id="sendSmsBtn" type="button">📱 Send SMS</button>
+                  <button class="outreach-btn" id="addCrmBtn" type="button">📋 Add to CRM</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="panel card">
-          <ol class="ordered-list">
-            <li>Write a Python script to monitor a single county's probate public notice board.</li><li>Pass new notices to Claude to extract Address and Heir Name.</li><li>Send a Slack alert with a Zillow link and a pre-drafted outreach letter.</li>
-          </ol>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section shell">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Risk & timing</p>
-            <h3>Compression horizon and execution risks</h3>
+    <!-- ===== Features ===== -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Features</p>
+          <h2>Everything You Need to Win Deals First</h2>
+          <p>A fully integrated pipeline from data source to deal desk — no manual research, no data lag, no missed opportunities.</p>
+        </div>
+        <div class="features-grid">
+          <div class="card feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Multi-County Monitoring</h3>
+            <p>Continuous scanning of 200+ county clerk websites using Firecrawl and Playwright, catching every probate filing, tax lien, and foreclosure notice as it goes live.</p>
+          </div>
+          <div class="card feature-card">
+            <div class="feature-icon">🤖</div>
+            <h3>LLM-Powered Extraction</h3>
+            <p>Claude and GPT-4 parse unstructured PDFs and HTML, extracting property addresses, heir names, filing dates, and case numbers with 92% accuracy.</p>
+          </div>
+          <div class="card feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Intelligent Lead Scoring</h3>
+            <p>Multi-factor scoring weighs estimated equity, probate age, vacancy probability, and tax delinquency to surface the highest-value opportunities first.</p>
+          </div>
+          <div class="card feature-card">
+            <div class="feature-icon">📬</div>
+            <h3>Automated Outreach</h3>
+            <p>High-scoring leads instantly receive personalized cash-offer letters via Lob and SMS via Twilio — all before your competition knows the deal exists.</p>
+          </div>
+          <div class="card feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Equity Validation</h3>
+            <p>Real-time property valuation via Zillow and Redfin APIs confirms that estimated equity exceeds outstanding debt before any outreach is triggered.</p>
+          </div>
+          <div class="card feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Compliance Built In</h3>
+            <p>Respects rate limits, robots.txt, and state-specific probate outreach regulations. All data sourced from legally public records.</p>
           </div>
         </div>
-        <div class="panel card">
-          <p class="copy">Local municipalities blocking scrapers; high operational friction closing the actual physical real estate deals. Gap compression: 2-4 years as counties modernize their tech.</p>
-        </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    <footer>
-      <div class="shell footer-note">This demo page is generated from the project brief and organized as a standalone product module.</div>
+    <!-- ===== CTA ===== -->
+    <section class="section cta-section" id="early-access">
+      <div class="container">
+        <div class="cta-inner">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Early Access</p>
+          <h2>Be the First to Get the Edge</h2>
+          <p>We're onboarding a limited number of investors and wholesalers for early access. Get 30–90 day head starts on distressed property deals in your target markets.</p>
+          <form class="cta-form" id="earlyAccessForm" aria-label="Early access signup">
+            <input type="email" class="cta-input" placeholder="you@example.com" required aria-label="Email address" />
+            <button type="submit" class="btn btn-primary">Request Access</button>
+          </form>
+          <p class="cta-note">No spam. We'll notify you when your market is live.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <div class="navbar-logo footer-logo">⚡</div>
+          ProbateEdge
+        </div>
+        <div class="footer-links">
+          <a href="#how-it-works">How It Works</a>
+          <a href="#demo">Demo</a>
+          <a href="#features">Features</a>
+          <a href="#early-access">Early Access</a>
+        </div>
+        <span class="footer-copy">&copy; 2026 ProbateEdge. All rights reserved.</span>
+      </div>
     </footer>
 
     <script src="./script.js"></script>
